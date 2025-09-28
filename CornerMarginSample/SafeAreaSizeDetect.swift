@@ -20,6 +20,21 @@ extension EnvironmentValues {
     @Entry var cornerAdaptationMargin: EdgeInsets = .init()
 }
 
+@MainActor
+@Observable
+private class SafeAreaSizeDetector {
+    private(set) var safeAreaInsets: EdgeInsets = .init()
+    private(set) var cornerAdaptationMargin: EdgeInsets = .init()
+    
+    func onSafeAreaInsetsChanged(_ newValue: EdgeInsets) {
+        self.safeAreaInsets = newValue
+    }
+    
+    func onCornerAdaptationMarginChanged(_ newValue: EdgeInsets) {
+        self.cornerAdaptationMargin = newValue
+    }
+}
+
 private struct SafeAreaInsetsProviderViewModifier: ViewModifier {
     @State private var detector = SafeAreaSizeDetector()
     
@@ -30,9 +45,6 @@ private struct SafeAreaInsetsProviderViewModifier: ViewModifier {
         }
         .environment(\.safeAreaInsets, detector.safeAreaInsets)
         .environment(\.cornerAdaptationMargin, detector.cornerAdaptationMargin)
-        .onChange(of: detector.safeAreaInsets) {
-            detector.printInsets()
-        }
     }
 }
 
@@ -49,27 +61,6 @@ private struct SafeAreaSizeDetectView: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
         // ignored
-    }
-}
-
-@Observable
-private class SafeAreaSizeDetector {
-    private(set) var safeAreaInsets: EdgeInsets = .init()
-    private(set) var cornerAdaptationMargin: EdgeInsets = .init()
-    
-    @MainActor
-    func onSafeAreaInsetsChanged(_ newValue: EdgeInsets) {
-        self.safeAreaInsets = newValue
-    }
-    
-    @MainActor
-    func onCornerAdaptationMarginChanged(_ newValue: EdgeInsets) {
-        self.cornerAdaptationMargin = newValue
-    }
-    
-    func printInsets() {
-        print("safeAreaInsets: \(safeAreaInsets)")
-        print("cornerAdaptationMargin: \(cornerAdaptationMargin)")
     }
 }
 
@@ -101,18 +92,6 @@ public class SafeAreaSizeDetectUIView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    public override func safeAreaInsetsDidChange() {
-        super.safeAreaInsetsDidChange()
-        triggerUpdate()
-        logger.log("safeAreaInsetsDidChange")
-    }
-    
-    public override func didMoveToWindow() {
-        super.didMoveToWindow()
-        logger.log("triggerUpdate")
-        triggerUpdate()
     }
     
     public override func layoutSubviews() {
