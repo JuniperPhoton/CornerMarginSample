@@ -12,6 +12,7 @@ struct CornerMarginSampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .injectSafeAreaInsetsDetector()
         }
     }
 }

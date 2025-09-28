@@ -10,9 +10,22 @@
 		22EB0FC02E88EC3800379521 /* CornerMarginSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CornerMarginSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		22A599572E890DA3000593F1 /* Exceptions for "CornerMarginSample" folder in "CornerMarginSample" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 22EB0FBF2E88EC3800379521 /* CornerMarginSample */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		22EB0FC22E88EC3800379521 /* CornerMarginSample */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				22A599572E890DA3000593F1 /* Exceptions for "CornerMarginSample" folder in "CornerMarginSample" target */,
+			);
 			path = CornerMarginSample;
 			sourceTree = "<group>";
 		};
@@ -254,6 +267,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CornerMarginSample/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = UIDesignRequiresCompatibility;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -298,6 +313,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CornerMarginSample/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = UIDesignRequiresCompatibility;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
