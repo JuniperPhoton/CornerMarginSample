@@ -14,6 +14,7 @@ struct ContentView: View {
     
     @State private var showSafeAreaBackground: Bool = true
     @State private var showCornerAdaptationMarginBackground: Bool = true
+    @State private var showTitleSpacerBackground: Bool = true
     
     var body: some View {
         VStack {
@@ -22,10 +23,14 @@ struct ContentView: View {
                     .font(.largeTitle.bold())
                     .padding(.leading, cornerAdaptationMargin.leading)
                 
-                Rectangle()
-                    .fill(.red)
-                    .frame(height: 30)
-                    .frame(maxWidth: .infinity)
+                if showTitleSpacerBackground {
+                    Rectangle()
+                        .fill(.red)
+                        .frame(height: 30)
+                        .frame(maxWidth: .infinity)
+                } else {
+                    Spacer()
+                }
                 
                 IconButton()
             }
@@ -57,6 +62,10 @@ struct ContentView: View {
                         Text("CornerAdaptationMargin Background")
                         Circle().fill(Color.yellow).frame(width: 20, height: 20)
                     }
+                }
+                
+                Toggle(isOn: $showTitleSpacerBackground.animation()) {
+                    Text("TitleSpacer Background")
                 }
             }.padding()
                 .frame(maxWidth: 500)
