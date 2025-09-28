@@ -128,6 +128,7 @@ public class SafeAreaSizeDetectUIView: UIView {
         
         let safeAreaInsets: UIEdgeInsets
         let cornerAdaptationMargin: UIEdgeInsets?
+        
         if #available(iOS 26.0, *) {
             safeAreaInsets = window.edgeInsets(for: .safeArea())
             cornerAdaptationMargin = window.edgeInsets(for: .margins(cornerAdaptation: .horizontal))
@@ -135,8 +136,6 @@ public class SafeAreaSizeDetectUIView: UIView {
             safeAreaInsets = window.safeAreaInsets
             cornerAdaptationMargin = nil
         }
-        
-        //logger.info("safeAreaInsets: \(safeAreaInsets), cornerAdaptationMargin: \(String(describing: cornerAdaptationMargin))")
         
         DispatchQueue.main.async {
             self.onSafeAreaInsetsChanged(

@@ -28,7 +28,7 @@ class UISceneDelegation: NSObject, UIWindowSceneDelegate {
     func preferredWindowingControlStyle(
         for windowScene: UIWindowScene
     ) -> UIWindowScene.WindowingControlStyle {
-        .minimal
+        .automatic
     }
 }
 

@@ -8,6 +8,24 @@
 import SwiftUI
 import OSLog
 
+struct ContentViewUsingSwiftUIAPI: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Text("My Title")
+                    .font(.largeTitle.bold())
+                
+                Text("Center Title Center Title Center Title Center Title Center Title Center Title Center Title Center Title")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                IconButton()
+            }.containerCornerOffset(.horizontal, sizeToFit: true)
+            
+            Spacer()
+        }
+    }
+}
+
 struct ContentView: View {
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Environment(\.cornerAdaptationMargin) private var cornerAdaptationMargin
