@@ -83,7 +83,10 @@ struct ContentView: View {
                 }
                 
                 Toggle(isOn: $showTitleSpacerBackground.animation()) {
-                    Text("TitleSpacer Background")
+                    HStack {
+                        Text("TitleSpacer Background")
+                        Circle().fill(Color.red).frame(width: 20, height: 20)
+                    }
                 }
             }.padding()
                 .frame(maxWidth: 500)
